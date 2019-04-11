@@ -11,7 +11,7 @@ module.exports = {
         // initial url to begin the search with
         let url = "https://swapi.co/api/people/";
         // empty array to store the names of the characters
-        let allCharacters = [];
+        let allCharacterNames = [];
 
         // function where the axios get request will be made
         const loopAllPages = () => axios.get(url)
@@ -19,10 +19,13 @@ module.exports = {
                 response => {
                     // make the results info we want easier to access by storing it in a variable
                     const characterResults = response.data.results;
-                    // add these results to our allCharacters array
-                    allCharacters.push(characterResults);
+                    // since all we need for this API call are the character names, we will filter them out here
+                    characterResults.map(eachCharacter => {
+                        // add these results to our allCharacters array
+                        allCharacterNames.push(eachCharacter.name);
+                    });
                     // since the SWAPI has several pages of information for the characters, we need to loop through all of them
-                    // if the value of response.data.next is not null, the value should be a link to the next set of info
+                    // if the value of response.data.next is not null, the value should be a link to the next page of info
                     // while this is true, use this value as the link for our API call
                     while (response.data.next !== null) {
                         url = response.data.next;
@@ -30,7 +33,7 @@ module.exports = {
                         return loopAllPages();
                     }
                     // display the accumulated results in a json format
-                    res.json(allCharacters);
+                    res.json(allCharacterNames);
                 })
             // if we encounter error 422 (Unprocessable Entity), catch it and return it to us
             .catch(err => res.status(422).json(err));
