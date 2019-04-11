@@ -5,7 +5,7 @@ const routes = require("./routes");
 
 // initialize Express
 const app = express();
-// API PORT for local use, PORT 3000 will be for client
+// API PORT for local use, PORT 3000 will be for client (react app)
 const PORT = 3001;
 
 // Use morgan logger for logging http requests
