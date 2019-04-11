@@ -1,9 +1,9 @@
 import React from "react";
 
 class SubmitButton extends React.Component {
-    render(){
-        return(
-            <button>CLICK ME</button>
+    render() {
+        return (
+            <button>SEARCH</button>
         )
     }
 };
