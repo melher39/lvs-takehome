@@ -9,8 +9,8 @@ router.route("/")
 
 // url matches with /api/characters/:name
 // retrieve specific character data
-router.route("/:name")
-    .get(charactersController.findOne);
+// router.route("/:name")
+//     .get(charactersController.findOne);
 
 // export our router to be used elsewhere
 module.exports = router;

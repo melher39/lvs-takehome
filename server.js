@@ -1,7 +1,7 @@
 // import dependencies
 const express = require("express");
 const logger = require("morgan");
-// const routes = require("./routes");
+const routes = require("./routes");
 
 // initialize Express
 const app = express();
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // give express access to our routes
-// app.use(routes);
+app.use(routes);
 
 // Start the API server on PORT 3001
 app.listen(PORT, () => {
