@@ -7,7 +7,8 @@ class SubmitForm extends React.Component {
 
     state = {
         names: [], 
-        selectedOption: null
+        selectedOption: null,
+        characterInfo: []
     };
 
     // as soon as the component loads
@@ -33,12 +34,17 @@ class SubmitForm extends React.Component {
              selectedOption: currentValue 
             });
         console.log(`Option selected:`, currentValue);
-      }
+      };
 
     handleSubmit = event => {
         event.preventDefault();
-        // API.characterDetails();
-        console.log(this.state.selectedOption);
+        API.characterDetails(this.state.selectedOption.value).then(details => {
+            this.setState({
+                characterInfo: details.data[0]
+            });
+            console.log(this.state.characterInfo);
+        });
+        
     };
 
     render() {
@@ -52,7 +58,7 @@ class SubmitForm extends React.Component {
                 <SubmitButton />
             </form>
         )
-    }
-}
+    };
+};
 
 export default SubmitForm;
