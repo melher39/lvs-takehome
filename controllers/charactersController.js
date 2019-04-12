@@ -46,7 +46,7 @@ module.exports = {
     findOne: function (req, res) {
         axios.get("https://swapi.co/api/people/", { params: { search: req.params.name } })
             .then(
-                ({ data: { results } }) => res.json(results)
+                response => res.json(response.data.results)
             )
             .catch(err => res.status(422).json(err));
     }

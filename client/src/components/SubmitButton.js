@@ -1,11 +1,11 @@
 import React from "react";
 
-class SubmitButton extends React.Component {
-    render() {
+function SubmitButton() {
+    
         return (
-            <button>SEARCH</button>
+            <button type="submit">SEARCH</button>
         )
-    }
+    
 };
 
 export default SubmitButton;
