@@ -2,13 +2,14 @@ import React from "react";
 import Select from "react-select";
 import API from "../util/API.js";
 import SubmitButton from "./SubmitButton.js";
+import ResultsDisplay from "./ResultsDisplay.js";
 
 class SubmitForm extends React.Component {
 
     state = {
-        names: [], 
+        names: [],
         selectedOption: null,
-        characterInfo: []
+        characterInfo: null
     };
 
     // as soon as the component loads
@@ -26,15 +27,14 @@ class SubmitForm extends React.Component {
             });
             console.log(this.state.names);
         });
-        
+
     };
 
     handleChange = currentValue => {
         this.setState({
-             selectedOption: currentValue 
-            });
-        console.log(`Option selected:`, currentValue);
-      };
+            selectedOption: currentValue
+        });
+    };
 
     handleSubmit = event => {
         event.preventDefault();
@@ -44,19 +44,24 @@ class SubmitForm extends React.Component {
             });
             console.log(this.state.characterInfo);
         });
-        
+
     };
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <Select
-                    onChange={this.handleChange}
-                    options={this.state.names}
-                    placeholder="Select a Character..."
-                />
-                <SubmitButton />
-            </form>
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <Select
+                        onChange={this.handleChange}
+                        options={this.state.names}
+                        placeholder="Select a Character..."
+                    />
+                    <SubmitButton />
+                </form>
+
+                {this.state.characterInfo ? <ResultsDisplay characterInfo={this.state.characterInfo} /> : null}
+            </div>
+
         )
     };
 };
