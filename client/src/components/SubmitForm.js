@@ -9,7 +9,8 @@ class SubmitForm extends React.Component {
     state = {
         names: [],
         selectedOption: null,
-        characterInfo: null
+        characterInfo: null,
+        isLoading:true
     };
 
     // as soon as the component loads
@@ -23,7 +24,8 @@ class SubmitForm extends React.Component {
                 }
             });
             this.setState({
-                names: namesAsOptions
+                names: namesAsOptions,
+                isLoading: false
             });
             console.log(this.state.names);
         });
@@ -55,6 +57,7 @@ class SubmitForm extends React.Component {
                         onChange={this.handleChange}
                         options={this.state.names}
                         placeholder="Select a Character..."
+                        isLoading={this.state.isLoading}
                     />
                     <SubmitButton />
                 </form>
