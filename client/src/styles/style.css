@@ -21,3 +21,15 @@ h1 {
 #buttonDiv {
     text-align: center;
 }
+
+/* center and resize the dropdown component */
+form {
+    width: 400px;
+    margin: auto;
+}
+
+/* center the results displayed */
+#results-display {
+    display: flex;
+    justify-content: center;
+}

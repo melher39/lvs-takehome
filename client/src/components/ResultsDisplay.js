@@ -3,9 +3,9 @@ import React from "react";
 function ResultsDisplay(props) {
     return (
         // Receive props from SubmitButton component and display them here
-        <div>
-            <h3><i>{props.characterInfo.name}</i></h3>
+        <div id="results-display">
             <ul>
+                <h3><i>{props.characterInfo.name}</i></h3>
                 <li>{`Height: ${props.characterInfo.height}`}</li>
                 <li>{`Mass: ${props.characterInfo.mass}`}</li>
                 <li>{`Hair Color: ${props.characterInfo.hair_color}`}</li>
