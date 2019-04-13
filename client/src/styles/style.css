@@ -1,0 +1,23 @@
+/* some quick styling */
+/* center the content */
+body{
+    width: 768px;
+    margin: auto;
+}
+
+/* give the button some space on top and styling */
+button{
+    margin-top: 10px;
+    background-color:lightseagreen;
+    color: white;
+    padding: 10px;
+}
+
+/* center align content*/
+h1 {
+    text-align: center;
+}
+
+#buttonDiv {
+    text-align: center;
+}

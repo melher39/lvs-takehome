@@ -20,7 +20,7 @@ module.exports = {
                     // make the results info we want easier to access by storing it in a variable
                     const characterResults = response.data.results;
                     // since all we need for this API call are the character names, we will filter them out here
-                    characterResults.map(eachCharacter => {
+                    characterResults.forEach(eachCharacter => {
                         // add these results to our allCharacters array
                         allCharacterNames.push(eachCharacter.name);
                     });

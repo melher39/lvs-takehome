@@ -44,18 +44,21 @@ class SubmitForm extends React.Component {
     // and update the state with this info
     handleSubmit = event => {
         event.preventDefault();
-        API.characterDetails(this.state.selectedOption.value).then(details => {
-            this.setState({
-                characterInfo: details.data[0]
+        // check first to see if a valid option is selected
+        if (this.state.selectedOption) {
+            API.characterDetails(this.state.selectedOption.value).then(details => {
+                this.setState({
+                    characterInfo: details.data[0]
+                });
             });
-        });
+        }
     };
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                {/* react-select dropdown */}
+                    {/* react-select dropdown */}
                     <Select
                         onChange={this.handleChange}
                         options={this.state.names}

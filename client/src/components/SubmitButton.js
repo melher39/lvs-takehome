@@ -4,7 +4,9 @@ function SubmitButton() {
 
     // Simple submit button component
     return (
+        <div id="buttonDiv">
         <button type="submit">SEARCH</button>
+        </div>
     )
 
 };
