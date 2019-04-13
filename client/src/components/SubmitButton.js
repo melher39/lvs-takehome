@@ -1,11 +1,12 @@
 import React from "react";
 
 function SubmitButton() {
-    
-        return (
-            <button type="submit">SEARCH</button>
-        )
-    
+
+    // Simple submit button component
+    return (
+        <button type="submit">SEARCH</button>
+    )
+
 };
 
 export default SubmitButton;

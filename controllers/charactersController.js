@@ -29,7 +29,7 @@ module.exports = {
                     // while this is true, use this value as the link for our API call
                     while (response.data.next !== null) {
                         url = response.data.next;
-                        // using recursion, we will run this same function until the condition is no longer met
+                        // using recursion, we will run this same function until the while condition is no longer met
                         return loopAllPages();
                     }
                     // display the accumulated results in a json format
